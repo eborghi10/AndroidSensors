@@ -15,5 +15,9 @@ buildscript {
 allprojects {
     repositories {
         mavenCentral()
+        maven {
+            name "rosjava-github"
+            url "https://github.com/rosjava/rosjava_mvn_repo/raw/master"
+        }
     }
 }

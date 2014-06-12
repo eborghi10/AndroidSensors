@@ -1,0 +1,28 @@
+apply plugin: 'android-library'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "19.1.0"
+
+    defaultConfig {
+        applicationId "org.ros.android"
+    }
+
+}
+
+configurations {
+    all*.exclude group: 'org.ros.rosjava_bootstrap', module: 'gradle_plugins'
+}
+
+dependencies {
+
+    compile('org.ros.rosjava_core:rosjava:0.1.6') {
+        exclude group: 'xml-apis'
+        exclude group: 'junit'
+    }
+
+    compile 'org.ros.rosjava_messages:std_msgs:0.5.8'
+    compile 'org.ros.rosjava_messages:rosgraph_msgs:1.9.50'
+    compile 'org.ros.rosjava_messages:sensor_msgs:1.10.2'
+
+}
