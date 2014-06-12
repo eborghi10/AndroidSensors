@@ -6,6 +6,7 @@ android {
 
     defaultConfig {
         applicationId "org.ollide.rosandroid"
+        // Android 4.0+ http://dannyroa.com/2013/10/17/why-its-time-to-support-only-android-4-0-and-above
         minSdkVersion 14
         targetSdkVersion 19
         versionCode 1
