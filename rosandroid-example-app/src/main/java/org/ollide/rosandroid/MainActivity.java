@@ -1,12 +1,21 @@
 package org.ollide.rosandroid;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import org.ros.address.InetAddressFactory;
+import org.ros.android.RosActivity;
+import org.ros.node.NodeConfiguration;
+import org.ros.node.NodeMain;
+import org.ros.node.NodeMainExecutor;
 
-public class MainActivity extends Activity {
+
+public class MainActivity extends RosActivity {
+
+    public MainActivity() {
+        super("RosAndroidExample", "RosAndroidExample");
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,5 +41,15 @@ public class MainActivity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void init(NodeMainExecutor nodeMainExecutor) {
+        NodeMain node = new SimplePublisherNode();
+
+        NodeConfiguration nodeConfiguration = NodeConfiguration.newPublic(InetAddressFactory.newNonLoopback().getHostAddress());
+        nodeConfiguration.setMasterUri(getMasterUri());
+
+        nodeMainExecutor.execute(node, nodeConfiguration);
     }
 }
