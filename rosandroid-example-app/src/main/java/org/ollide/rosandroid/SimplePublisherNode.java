@@ -20,15 +20,15 @@ import android.util.Log;
 
 import org.ros.concurrent.CancellableLoop;
 import org.ros.namespace.GraphName;
+import org.ros.node.AbstractNodeMain;
 import org.ros.node.ConnectedNode;
-import org.ros.node.Node;
 import org.ros.node.NodeMain;
 import org.ros.node.topic.Publisher;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class SimplePublisherNode implements NodeMain {
+public class SimplePublisherNode extends AbstractNodeMain implements NodeMain {
 
     private static final String TAG = SimplePublisherNode.class.getSimpleName();
 
@@ -61,18 +61,4 @@ public class SimplePublisherNode implements NodeMain {
         connectedNode.executeCancellableLoop(loop);
     }
 
-    @Override
-    public void onShutdown(Node node) {
-        // intentionally left blank
-    }
-
-    @Override
-    public void onShutdownComplete(Node node) {
-        // intentionally left blank
-    }
-
-    @Override
-    public void onError(Node node, Throwable throwable) {
-        // intentionally left blank
-    }
 }
