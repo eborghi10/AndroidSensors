@@ -17,8 +17,8 @@ connect to your ROS master you need to change these classes, which is why I've i
 Android source code.
 
 ### Requirements ###
-This project was only tested with ROS Hydro, it may not work with older or newer versions of ROS.
-It is optimized to work with Android Studio (Beta - 0.8.6) but can also be build from
+This template has been used with ROS Hydro and Indigo, it may not work with older or newer versions of ROS.
+It is optimized to work with the latest release of [Android Studio](https://developer.android.com/sdk/index.html) (currently 1.1.0) but can also be build from
 the command-line. As this is plain Android/Java/Gradle no full install of ROS is needed to compile,
 therefore you can not only use Ubuntu but also Windows or Mac.
 
