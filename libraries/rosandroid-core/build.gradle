@@ -11,13 +11,13 @@ configurations {
 
 dependencies {
 
-    compile('org.ros.rosjava_core:rosjava:0.2.0') {
+    compile('org.ros.rosjava_core:rosjava:0.2.1') {
         exclude group: 'xml-apis'
         exclude group: 'junit'
     }
 
     compile 'org.ros.rosjava_messages:std_msgs:0.5.9'
-    compile 'org.ros.rosjava_messages:rosgraph_msgs:1.10.3'
+    compile 'org.ros.rosjava_messages:rosgraph_msgs:1.11.0'
     compile 'org.ros.rosjava_messages:sensor_msgs:1.11.6'
 
 }
