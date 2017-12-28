@@ -79,7 +79,7 @@ public class OrientationPublisher extends AbstractNodeMain {
   public void onStart(ConnectedNode connectedNode) {
     try {
       Publisher<geometry_msgs.PoseStamped> publisher =
-          connectedNode.newPublisher("android/orientation", "geometry_msgs/PoseStamped");
+              connectedNode.newPublisher("android/orientation", "geometry_msgs/PoseStamped");
       orientationListener = new OrientationListener(publisher);
       Sensor sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
       // 10 Hz

@@ -24,7 +24,7 @@ import org.jboss.netty.buffer.ChannelBuffer;
  * @author damonkohler@google.com (Damon Kohler)
  */
 public class BitmapFromCompressedImage implements
-    MessageCallable<Bitmap, sensor_msgs.CompressedImage> {
+        MessageCallable<Bitmap, sensor_msgs.CompressedImage> {
 
   @Override
   public Bitmap call(sensor_msgs.CompressedImage message) {

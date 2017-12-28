@@ -18,7 +18,7 @@ package org.ros.android;
 
 /**
  * @author damonkohler@google.com (Damon Kohler)
- * 
+ *
  * @param <T>
  *          the return type
  * @param <S>
