@@ -28,3 +28,7 @@
 -dontwarn org.jboss.netty.**
 -dontwarn com.google.common.**
 -dontwarn org.xbill.**
+
+# https://stackoverflow.com/a/50088271/3167294
+-keepattributes *Annotation*
+-keep @**annotation** class * {*;}

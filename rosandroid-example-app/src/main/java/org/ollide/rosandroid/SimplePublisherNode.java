@@ -28,9 +28,11 @@ import org.ros.node.topic.Publisher;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import std_msgs.String;
+
 public class SimplePublisherNode extends AbstractNodeMain implements NodeMain {
 
-    private static final String TAG = SimplePublisherNode.class.getSimpleName();
+    private static final java.lang.String TAG = SimplePublisherNode.class.getSimpleName();
 
     @Override
     public GraphName getDefaultNodeName() {
@@ -45,7 +47,7 @@ public class SimplePublisherNode extends AbstractNodeMain implements NodeMain {
             @Override
             protected void loop() throws InterruptedException {
                 // retrieve current system time
-                String time = new SimpleDateFormat("HH:mm:ss").format(new Date());
+                java.lang.String time = SimpleDateFormat.getTimeInstance().format(new Date());
 
                 Log.i(TAG, "publishing the current time: " + time);
 
