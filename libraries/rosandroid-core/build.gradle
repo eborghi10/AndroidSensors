@@ -24,11 +24,16 @@ dependencies {
         exclude group: 'junit'
     }
 
+    api 'org.ros.rosjava_messages:std_msgs:0.5.11'
+    api 'org.ros.rosjava_messages:rosgraph_msgs:1.11.2'
+    api 'org.ros.rosjava_messages:sensor_msgs:1.12.5'
+    api 'org.ros.rosjava_messages:diagnostic_msgs:1.12.5'
     implementation 'org.ros.rosjava_messages:std_msgs:0.5.11'
     implementation 'org.ros.rosjava_messages:rosgraph_msgs:1.11.2'
     implementation 'org.ros.rosjava_messages:sensor_msgs:1.12.5'
     implementation 'org.ros.rosjava_messages:diagnostic_msgs:1.12.5'
 
+    api 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support:appcompat-v7:26.1.0'
 
 }

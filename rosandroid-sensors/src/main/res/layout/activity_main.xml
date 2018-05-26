@@ -9,9 +9,9 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:text="@string/ros_introduction"
-        android:layout_width="wrap_content"
+        android:id="@+id/myLocationText"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:autoLink="web"/>
+        android:text="@string/Hello"/>
 
 </RelativeLayout>

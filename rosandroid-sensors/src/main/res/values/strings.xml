@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">RosAndroid Sensors</string>
+    <string name="ros_introduction">This is an example application from github.com/ollide/rosjava_android_template!\n\nIf you\'re connected to a running ROS master, the SimplePublisherNode publishes the current time every second to the /time topic. Execute \'rostopic echo /time\' to validate that everything\'s working as expected.</string>
+    <string name="Hello">Hello</string>
+    <string name="apply">Apply</string>
+    <string name="default_location_frame_id">fix</string>
+    <string name="default_imu_frame_id">imu</string>
+    <string name="label_location_frame_id">Location Frame ID</string>
+    <string name="label_imu_frame_id">IMU Frame ID</string>
+    <string name="default_location_hint">Default location frame ID</string>
+    <string name="default_imu_hint">Default IMU frame ID</string>
+
+</resources>

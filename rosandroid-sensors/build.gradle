@@ -27,5 +27,6 @@ android {
 }
 
 dependencies {
+    api project(':libraries:rosandroid-core')
     implementation project(':libraries:rosandroid-core')
 }
