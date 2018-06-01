@@ -26,6 +26,7 @@ import android.location.Criteria;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -42,7 +43,6 @@ public class MainActivity extends RosActivity implements View.OnClickListener {
     private EditText locationFrameIdView, imuFrameIdView;
     Button applyB;
     private OnFrameIdChangeListener locationFrameIdListener, imuFrameIdListener;
-    //private boolean permissionsGranted;
 
     public MainActivity() {
         super("RosAndroidExample", "RosAndroidExample");
@@ -100,28 +100,26 @@ public class MainActivity extends RosActivity implements View.OnClickListener {
         final int t = 500;
         final float distance = 0.1f;
 
-        /*
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            requestPermissions(new String[]{
-                    Manifest.permission.ACCESS_FINE_LOCATION,
-                    Manifest.permission.INTERNET,
-                    Manifest.permission.WAKE_LOCK,
-                    Manifest.permission.SYSTEM_ALERT_WINDOW
-            }, PackageManager.GET_PERMISSIONS);
-        }
-        */
-
         MainActivity.this.runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_DENIED
-                            && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_DENIED) {
+                    boolean permissionFineLocation = checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
+                    boolean permissionCoarseLocation = checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED;
+                    Log.d(TAG, "PERMISSION 1: " + String.valueOf(permissionFineLocation));
+                    Log.d(TAG, "PERMISSION 2: " + String.valueOf(permissionCoarseLocation));
+                    if (permissionFineLocation && permissionCoarseLocation) {
                         if (locationManager != null) {
                             Log.d(TAG, "Requesting location");
-                            locationManager.requestLocationUpdates(provider, t, distance, locationPublisherNode.getLocationListener());
+                            locationManager.requestLocationUpdates(provider, t, distance,
+                                    locationPublisherNode.getLocationListener());
                         }
+                    } else {
+                        // Request permissions
+                        requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, PackageManager.GET_PERMISSIONS);
                     }
+                } else {
+                    locationManager.requestLocationUpdates(provider, t, distance, locationPublisherNode.getLocationListener());
                 }
             }
         });
@@ -187,21 +185,16 @@ public class MainActivity extends RosActivity implements View.OnClickListener {
         spe.apply();
     }
 
-    /*
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == PackageManager.GET_PERMISSIONS) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED
-                    && grantResults[1] == PackageManager.PERMISSION_GRANTED
-                    && grantResults[2] == PackageManager.PERMISSION_GRANTED
-                    && grantResults[3] == PackageManager.PERMISSION_GRANTED) {
-                permissionsGranted = true;
-                Log.e(TAG, "Permissions granted!");
+                    && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+                Log.d(TAG, "Permissions granted!");
             } else {
                 Log.e(TAG, "Permissions not granted.");
             }
         }
     }
-    */
 }
